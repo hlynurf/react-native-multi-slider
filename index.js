@@ -1,47 +1,46 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {Component} from 'react-native';
+import {
   AppRegistry,
   StyleSheet,
   View,
   Text,
-  SliderIOS,
-  Image
-} = React;
+  Slider,
+  Image,
+} from 'react-native';
 
-var MultiSlider  = require('./Slider.js');
-var customMarker = require('./customMarker.js');
+import MultiSlider from './Slider.js';
+import customMarker from './customMarker.js';
 
-var Slider = React.createClass({
-
-  getInitialState: function () {
-    return {
+export default class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       sliderOneChanging: false,
       sliderOneValue: [5]
-    }
-  },
+    };
+  }
 
-  SliderOneValuesChangeStart: function () {
+  SliderOneValuesChangeStart() {
     this.setState({
       sliderOneChanging: true
-    })
-  },
+    });
+  }
 
-  SliderOneValuesChange: function (values) {
+  SliderOneValuesChange(values) {
     this.setState({
       sliderOneValue: values[0]
-    })
-  },
+    });
+  }
 
-  SliderOneValuesChangeFinish: function () {
+  SliderOneValuesChangeFinish() {
     this.setState({
       sliderOneChanging: false
-    })
-  },
+    });
+  }
 
-  render: function() {
-
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Sliders</Text>
@@ -84,12 +83,12 @@ var Slider = React.createClass({
             customMarker={customMarker}
             sliderLength={280} />
           <Text style={styles.text}>Native RCT Slider</Text>
-          <SliderIOS />
+          <Slider />
         </View>
       </View>
     );
   }
-});
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -113,8 +112,6 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around'
   }
-
-
 });
 
 AppRegistry.registerComponent('Slider', () => Slider);

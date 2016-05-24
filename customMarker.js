@@ -1,19 +1,11 @@
-'use strict';
-
-var React = require('react-native');
-var {
-  PropTypes,
+import React, {PropTypes, Component} from 'react';
+import {
   StyleSheet,
   Image
-} = React;
+} from 'react-native';
 
-var CustomMarker = React.createClass({
-
-  propTypes: {
-    pressed: PropTypes.bool,
-  },
-
-  render: function () {
+class CustomMarker extends Component {
+  render() {
     return (
       <Image
         style={styles.image}
@@ -22,7 +14,11 @@ var CustomMarker = React.createClass({
       />
     );
   }
-});
+};
+
+CustomMarker.PropTypes = {
+  pressed: PropTypes.bool,
+};
 
 var styles = StyleSheet.create({
   image: {
@@ -31,4 +27,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = CustomMarker;
+export defualt CustomMarker;

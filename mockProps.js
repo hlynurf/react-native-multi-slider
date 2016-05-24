@@ -1,29 +1,27 @@
 'use strict';
 
-var React = require('react-native');
-var {
-  PropTypes,
+import React, {PropTypes, Component} from 'react-native';
+import {
   View,
-} = React;
+} from 'react-native';
 
-var BasicMarker = React.createClass({
-
-  propTypes: {
-    pressed: PropTypes.bool,
-    pressedMarkerStyle: View.propTypes.style,
-    markerStyle: View.propTypes.style
-  },
-
-  render: function () {
+class BasicMarker extends Component {
+  render() {
     return (
       <View
         style={[this.props.markerStyle, this.props.pressed && this.props.pressedMarkerStyle]}
       />
     );
   }
-});
+};
 
-var mockProps = {
+BasicMarker.PropTypes = {
+  pressed: PropTypes.bool,
+  pressedMarkerStyle: View.propTypes.style,
+  markerStyle: View.propTypes.style,
+};
+
+const mockProps = {
   values: [0],
   onValuesChangeStart: function () {
     console.log('press started');
@@ -71,4 +69,4 @@ var mockProps = {
   sliderLength: 280
 };
 
-module.exports = mockProps;
+export default mockProps;
