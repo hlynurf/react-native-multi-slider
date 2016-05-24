@@ -1,6 +1,6 @@
 'use strict';
 
-import React, {PropTypes, Component} from 'react-native';
+import React, {PropTypes, Component} from 'react';
 import {
   View,
 } from 'react-native';
